@@ -1,12 +1,14 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:kiwi/kiwi.dart';
-import 'package:marvel_app/api/client/api_utils.dart';
-import 'package:marvel_app/api/client/marvel_api.dart';
-import 'package:marvel_app/api/client/marvel_client.dart';
+import 'package:marvel_app/api/api_utils.dart';
+import 'package:marvel_app/api/marvel_api.dart';
+import 'package:marvel_app/api/marvel_client.dart';
 import 'package:marvel_app/blocs/home_bloc.dart';
 import 'package:marvel_app/core/error_handler.dart';
 import 'package:marvel_app/core/event_bus.dart';
+import 'package:marvel_app/data/repository/character_repository_impl.dart';
+import 'package:marvel_app/domain/usecase/fetch_character_usecase.dart';
 import 'package:marvel_app/inject/injector.dart';
 import 'package:marvel_app/services/marvel_service.dart';
 
@@ -32,6 +34,8 @@ abstract class AppInjector extends Injector {
     _registerClients();
     _registerApis();
     _registerServices();
+    _registerRepositories();
+    _registerUseCases();
     _registerMiscModules();
     _registerBlocProviders();
   }
@@ -101,6 +105,14 @@ abstract class AppInjector extends Injector {
   /// Register Services
   @Register.singleton(MarvelService)
   void _registerServices();
+
+  /// Register Repositories
+  @Register.singleton(CharacterRepositoryImpl)
+  void _registerRepositories();
+
+  /// Register UseCase
+  @Register.singleton(FetchCharacterUseCase)
+  void _registerUseCases();
 
   /// Register Bloc dependencies
   @Register.factory(HomeBloc)

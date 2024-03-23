@@ -41,10 +41,9 @@ dependencies:
   fast_immutable_collections: ^10.1.2
   json_annotation: ^4.8.1
   crypto: ^3.0.3
-  kiwi_generator: ^4.1.0
   kiwi: ^4.1.0
-  
-  
+  html: ^0.15.4
+  path: ^1.8.3
   
 
 dev_dependencies:
@@ -58,6 +57,9 @@ dev_dependencies:
   json_serializable: ^6.7.1
   flutter_gen_runner: ^5.4.0
   retrofit_generator: ^8.1.0
+  dynamic_config_generator: ^0.4.0
+  kiwi_generator: ^4.1.0
+  analyzer: ^5.13.0
 
 
 # For information on the generic Dart part of this file, see the
@@ -65,11 +67,16 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-
-  # The following line ensures that the Material Icons font is
-  # included with your application, so that you can use the icons in
-  # the material Icons class.
   uses-material-design: true
+
+  assets:
+    - assets/images/
+  fonts:
+    - family: Cabin
+      fonts:
+        - asset: assets/fonts/cabin-regular.ttf
+        - asset: assets/fonts/cabin-bold.ttf
+          weight: 700
 
   # To add assets to your application, add an assets section, like this:
   # assets:

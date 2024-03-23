@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:marvel_app/inject/injector.dart';
-import 'package:marvel_app/ui/home/home_screen.dart';
+import 'package:marvel_app/presentation/home/home_screen.dart';
 
 Future<void> main({Injector? injector}) async {
   WidgetsFlutterBinding.ensureInitialized();

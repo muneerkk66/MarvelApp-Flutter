@@ -9,9 +9,9 @@
 # packages, and plugins designed to encourage good coding practices.
 include: package:flutter_lints/flutter.yaml
 analyzer:
-  language:
-    strict-casts: true
-    strict-raw-types: true
+  strong-mode:
+    implicit-casts: false
+    implicit-dynamic: false
     # Explanation: https://dash-overflow.net/articles/getting_started/
   errors:
     # treat missing required parameters as an error (not a hint)

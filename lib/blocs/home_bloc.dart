@@ -3,13 +3,13 @@ import 'package:marvel_app/core/base_bloc.dart';
 import 'package:marvel_app/core/contracts/home_contract.dart';
 import 'package:marvel_app/core/error_handler.dart';
 import 'package:marvel_app/core/load_state.dart';
-import 'package:marvel_app/services/marvel_service.dart';
+import 'package:marvel_app/domain/usecase/fetch_character_usecase.dart';
 
 class HomeBloc extends BaseBloc<HomeEvent, HomeData> {
-  final MarvelService _service;
+  final FetchCharacterUseCase _useCase;
   final ErrorHandler _errorHandler;
 
-  HomeBloc(this._service, this._errorHandler) : super(HomeData()) {
+  HomeBloc(this._useCase, this._errorHandler) : super(HomeData()) {
     on<Init>(initialize);
     on<Retry>(initialize);
     on<Error>(handleError);
@@ -32,7 +32,7 @@ class HomeBloc extends BaseBloc<HomeEvent, HomeData> {
   }
 
   void _fetchCharacters() {
-    _service.getCharacters()
+    _useCase.execute()
       ..call
           .then((value) => add(HomeEvent.charactersData(value)))
           .catchError((Object error) {

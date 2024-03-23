@@ -1,6 +1,6 @@
 import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:marvel_app/api/entities/character.dart';
+import 'package:marvel_app/domain/entities/character.dart';
 import 'package:marvel_app/core/load_state.dart';
 
 part 'home_contract.freezed.dart';

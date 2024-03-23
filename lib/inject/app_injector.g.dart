@@ -39,9 +39,22 @@ class _$AppInjector extends AppInjector {
   }
 
   @override
+  void _registerRepositories() {
+    final KiwiContainer container = KiwiContainer();
+    container.registerSingleton((c) => CharacterRepositoryImpl(c<MarvelApi>()));
+  }
+
+  @override
+  void _registerUseCases() {
+    final KiwiContainer container = KiwiContainer();
+    container.registerSingleton(
+        (c) => FetchCharacterUseCase(c<CharacterRepositoryImpl>()));
+  }
+
+  @override
   void _registerBlocProviders() {
     final KiwiContainer container = KiwiContainer();
     container.registerFactory(
-        (c) => HomeBloc(c<MarvelService>(), c<ErrorHandler>()));
+        (c) => HomeBloc(c<FetchCharacterUseCase>(), c<ErrorHandler>()));
   }
 }
