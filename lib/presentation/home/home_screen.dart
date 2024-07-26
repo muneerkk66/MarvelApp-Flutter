@@ -6,7 +6,6 @@ import 'package:marvel_app/blocs/home_bloc.dart';
 import 'package:marvel_app/core/base_state.dart';
 import 'package:marvel_app/core/contracts/home_contract.dart';
 import 'package:marvel_app/core/load_state.dart';
-import 'package:marvel_app/core/view_actions.dart';
 import 'package:marvel_app/presentation/hero/hero_detail_screen.dart';
 import 'package:marvel_app/presentation/home/components/character_item.dart';
 import 'package:marvel_app/presentation/home/error_view.dart';
@@ -24,31 +23,10 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends BaseState<HomeBloc, HomeScreen> {
-  _HomeScreenState() {
-    _initViewEvents();
-  }
-
-  void _initViewEvents() {
-    bloc.viewActions.listen((event) {
-      onViewEvent(event);
-    });
-  }
-
   @override
   void initState() {
     bloc.add(const HomeEvent.init());
     super.initState();
-  }
-
-  /// For single shot events like displaying a toast message, navigating etc.
-  @override
-  void onViewEvent(ViewAction event) {
-    switch (event.runtimeType) {
-      case DisplayMessage:
-        break;
-      case NavigateScreen:
-        break;
-    }
   }
 
   @override

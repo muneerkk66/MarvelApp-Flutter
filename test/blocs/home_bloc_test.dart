@@ -22,7 +22,7 @@ import 'home_bloc_test.mocks.dart';
 ])
 void main() {
   final initState = HomeData();
-  final contentFuture = Future.value(IList([character]));
+  final contentFuture = Future.value(character);
   final exception = Exception("Socket timeout");
   final successCancellable = Cancellable(contentFuture, CancelToken());
   final errorMessage = "No Network connection";
@@ -34,8 +34,8 @@ void main() {
   /// Note: Future.error directive causes a crash almost immediately.
   /// The trick is to use `thenAnswer` to delay its evaluation to invocation time
   ///
-  Cancellable<IList<Character>> getFailure(Exception e) {
-    return Cancellable(Future<IList<Character>>.error(e), CancelToken());
+  Cancellable<Character> getFailure(Exception e) {
+    return Cancellable(Future<Character>.error(e), CancelToken());
   }
 
   void init() {

@@ -19,7 +19,7 @@ class CharacterInfo extends StatelessWidget {
             horizontal: Dimens.keyline_main, vertical: Dimens.space_normal),
         decoration: const BoxDecoration(color: AppColors.secondary),
         child: Text(
-          character.name,
+          character.title,
           overflow: TextOverflow.ellipsis,
           maxLines: 1,
           style: TextStyles.textNormal,

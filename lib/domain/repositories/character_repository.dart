@@ -3,5 +3,5 @@ import 'package:marvel_app/domain/entities/character.dart';
 import 'package:marvel_app/domain/entities/common.dart';
 
 abstract class CharacterRepository {
-  Cancellable<IList<Character>> fetchCharacter();
+  Cancellable<Character> fetchCharacter();
 }

@@ -6,7 +6,6 @@ import 'package:marvel_app/services/marvel_service.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import '../data/character_fakes.dart';
-import '../data/marve_api_response_fakes.dart';
 
 import 'marvel_service_test.mocks.dart';
 
@@ -26,9 +25,9 @@ void main() {
   setUp(init);
 
   test("check invokes api and returns appropriate value", () async {
-    when(api.getCharacters()).thenReturn(
-        Cancellable(Future.value(marvelApiResponse), CancelToken()));
+    when(api.getCharacters())
+        .thenReturn(Cancellable(Future.value(character), CancelToken()));
     final characters = await service.getCharacters().call;
-    assert(characters[0] == character);
+    assert(characters == character);
   });
 }

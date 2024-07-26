@@ -20,8 +20,7 @@ MarvelApiResponse _$MarvelApiResponseFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$MarvelApiResponse {
-  int get code => throw _privateConstructorUsedError;
-  CharactersData get data => throw _privateConstructorUsedError;
+  List<Character> get characters => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,9 +34,7 @@ abstract class $MarvelApiResponseCopyWith<$Res> {
           MarvelApiResponse value, $Res Function(MarvelApiResponse) then) =
       _$MarvelApiResponseCopyWithImpl<$Res, MarvelApiResponse>;
   @useResult
-  $Res call({int code, CharactersData data});
-
-  $CharactersDataCopyWith<$Res> get data;
+  $Res call({List<Character> characters});
 }
 
 /// @nodoc
@@ -53,27 +50,14 @@ class _$MarvelApiResponseCopyWithImpl<$Res, $Val extends MarvelApiResponse>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? code = null,
-    Object? data = null,
+    Object? characters = null,
   }) {
     return _then(_value.copyWith(
-      code: null == code
-          ? _value.code
-          : code // ignore: cast_nullable_to_non_nullable
-              as int,
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as CharactersData,
+      characters: null == characters
+          ? _value.characters
+          : characters // ignore: cast_nullable_to_non_nullable
+              as List<Character>,
     ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $CharactersDataCopyWith<$Res> get data {
-    return $CharactersDataCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value) as $Val);
-    });
   }
 }
 
@@ -85,10 +69,7 @@ abstract class _$$MarvelApiResponseImplCopyWith<$Res>
       __$$MarvelApiResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int code, CharactersData data});
-
-  @override
-  $CharactersDataCopyWith<$Res> get data;
+  $Res call({List<Character> characters});
 }
 
 /// @nodoc
@@ -102,18 +83,13 @@ class __$$MarvelApiResponseImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? code = null,
-    Object? data = null,
+    Object? characters = null,
   }) {
     return _then(_$MarvelApiResponseImpl(
-      null == code
-          ? _value.code
-          : code // ignore: cast_nullable_to_non_nullable
-              as int,
-      null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as CharactersData,
+      null == characters
+          ? _value._characters
+          : characters // ignore: cast_nullable_to_non_nullable
+              as List<Character>,
     ));
   }
 }
@@ -121,19 +97,23 @@ class __$$MarvelApiResponseImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$MarvelApiResponseImpl implements _MarvelApiResponse {
-  _$MarvelApiResponseImpl(this.code, this.data);
+  _$MarvelApiResponseImpl(final List<Character> characters)
+      : _characters = characters;
 
   factory _$MarvelApiResponseImpl.fromJson(Map<String, dynamic> json) =>
       _$$MarvelApiResponseImplFromJson(json);
 
+  final List<Character> _characters;
   @override
-  final int code;
-  @override
-  final CharactersData data;
+  List<Character> get characters {
+    if (_characters is EqualUnmodifiableListView) return _characters;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_characters);
+  }
 
   @override
   String toString() {
-    return 'MarvelApiResponse(code: $code, data: $data)';
+    return 'MarvelApiResponse(characters: $characters)';
   }
 
   @override
@@ -141,13 +121,14 @@ class _$MarvelApiResponseImpl implements _MarvelApiResponse {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$MarvelApiResponseImpl &&
-            (identical(other.code, code) || other.code == code) &&
-            (identical(other.data, data) || other.data == data));
+            const DeepCollectionEquality()
+                .equals(other._characters, _characters));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, code, data);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_characters));
 
   @JsonKey(ignore: true)
   @override
@@ -165,224 +146,16 @@ class _$MarvelApiResponseImpl implements _MarvelApiResponse {
 }
 
 abstract class _MarvelApiResponse implements MarvelApiResponse {
-  factory _MarvelApiResponse(final int code, final CharactersData data) =
+  factory _MarvelApiResponse(final List<Character> characters) =
       _$MarvelApiResponseImpl;
 
   factory _MarvelApiResponse.fromJson(Map<String, dynamic> json) =
       _$MarvelApiResponseImpl.fromJson;
 
   @override
-  int get code;
-  @override
-  CharactersData get data;
+  List<Character> get characters;
   @override
   @JsonKey(ignore: true)
   _$$MarvelApiResponseImplCopyWith<_$MarvelApiResponseImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-CharactersData _$CharactersDataFromJson(Map<String, dynamic> json) {
-  return _CharactersData.fromJson(json);
-}
-
-/// @nodoc
-mixin _$CharactersData {
-  int get offset => throw _privateConstructorUsedError;
-  int get limit => throw _privateConstructorUsedError;
-  int get total => throw _privateConstructorUsedError;
-  int get count => throw _privateConstructorUsedError;
-  IList<Character> get results => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $CharactersDataCopyWith<CharactersData> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $CharactersDataCopyWith<$Res> {
-  factory $CharactersDataCopyWith(
-          CharactersData value, $Res Function(CharactersData) then) =
-      _$CharactersDataCopyWithImpl<$Res, CharactersData>;
-  @useResult
-  $Res call(
-      {int offset, int limit, int total, int count, IList<Character> results});
-}
-
-/// @nodoc
-class _$CharactersDataCopyWithImpl<$Res, $Val extends CharactersData>
-    implements $CharactersDataCopyWith<$Res> {
-  _$CharactersDataCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? offset = null,
-    Object? limit = null,
-    Object? total = null,
-    Object? count = null,
-    Object? results = null,
-  }) {
-    return _then(_value.copyWith(
-      offset: null == offset
-          ? _value.offset
-          : offset // ignore: cast_nullable_to_non_nullable
-              as int,
-      limit: null == limit
-          ? _value.limit
-          : limit // ignore: cast_nullable_to_non_nullable
-              as int,
-      total: null == total
-          ? _value.total
-          : total // ignore: cast_nullable_to_non_nullable
-              as int,
-      count: null == count
-          ? _value.count
-          : count // ignore: cast_nullable_to_non_nullable
-              as int,
-      results: null == results
-          ? _value.results
-          : results // ignore: cast_nullable_to_non_nullable
-              as IList<Character>,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$CharactersDataImplCopyWith<$Res>
-    implements $CharactersDataCopyWith<$Res> {
-  factory _$$CharactersDataImplCopyWith(_$CharactersDataImpl value,
-          $Res Function(_$CharactersDataImpl) then) =
-      __$$CharactersDataImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {int offset, int limit, int total, int count, IList<Character> results});
-}
-
-/// @nodoc
-class __$$CharactersDataImplCopyWithImpl<$Res>
-    extends _$CharactersDataCopyWithImpl<$Res, _$CharactersDataImpl>
-    implements _$$CharactersDataImplCopyWith<$Res> {
-  __$$CharactersDataImplCopyWithImpl(
-      _$CharactersDataImpl _value, $Res Function(_$CharactersDataImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? offset = null,
-    Object? limit = null,
-    Object? total = null,
-    Object? count = null,
-    Object? results = null,
-  }) {
-    return _then(_$CharactersDataImpl(
-      null == offset
-          ? _value.offset
-          : offset // ignore: cast_nullable_to_non_nullable
-              as int,
-      null == limit
-          ? _value.limit
-          : limit // ignore: cast_nullable_to_non_nullable
-              as int,
-      null == total
-          ? _value.total
-          : total // ignore: cast_nullable_to_non_nullable
-              as int,
-      null == count
-          ? _value.count
-          : count // ignore: cast_nullable_to_non_nullable
-              as int,
-      null == results
-          ? _value.results
-          : results // ignore: cast_nullable_to_non_nullable
-              as IList<Character>,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$CharactersDataImpl implements _CharactersData {
-  _$CharactersDataImpl(
-      this.offset, this.limit, this.total, this.count, this.results);
-
-  factory _$CharactersDataImpl.fromJson(Map<String, dynamic> json) =>
-      _$$CharactersDataImplFromJson(json);
-
-  @override
-  final int offset;
-  @override
-  final int limit;
-  @override
-  final int total;
-  @override
-  final int count;
-  @override
-  final IList<Character> results;
-
-  @override
-  String toString() {
-    return 'CharactersData(offset: $offset, limit: $limit, total: $total, count: $count, results: $results)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$CharactersDataImpl &&
-            (identical(other.offset, offset) || other.offset == offset) &&
-            (identical(other.limit, limit) || other.limit == limit) &&
-            (identical(other.total, total) || other.total == total) &&
-            (identical(other.count, count) || other.count == count) &&
-            const DeepCollectionEquality().equals(other.results, results));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, offset, limit, total, count,
-      const DeepCollectionEquality().hash(results));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$CharactersDataImplCopyWith<_$CharactersDataImpl> get copyWith =>
-      __$$CharactersDataImplCopyWithImpl<_$CharactersDataImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$CharactersDataImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _CharactersData implements CharactersData {
-  factory _CharactersData(final int offset, final int limit, final int total,
-      final int count, final IList<Character> results) = _$CharactersDataImpl;
-
-  factory _CharactersData.fromJson(Map<String, dynamic> json) =
-      _$CharactersDataImpl.fromJson;
-
-  @override
-  int get offset;
-  @override
-  int get limit;
-  @override
-  int get total;
-  @override
-  int get count;
-  @override
-  IList<Character> get results;
-  @override
-  @JsonKey(ignore: true)
-  _$$CharactersDataImplCopyWith<_$CharactersDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

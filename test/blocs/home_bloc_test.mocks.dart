@@ -6,14 +6,12 @@
 import 'dart:async' as _i3;
 
 import 'package:dio/dio.dart' as _i4;
-import 'package:fast_immutable_collections/fast_immutable_collections.dart'
-    as _i6;
-import 'package:marvel_app/core/error_handler.dart' as _i8;
-import 'package:marvel_app/domain/entities/character.dart' as _i7;
+import 'package:marvel_app/core/error_handler.dart' as _i7;
+import 'package:marvel_app/domain/entities/character.dart' as _i6;
 import 'package:marvel_app/domain/entities/common.dart' as _i2;
 import 'package:marvel_app/domain/usecase/fetch_character_usecase.dart' as _i5;
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:mockito/src/dummies.dart' as _i9;
+import 'package:mockito/src/dummies.dart' as _i8;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -69,25 +67,25 @@ class MockFetchCharacterUseCase extends _i1.Mock
   }
 
   @override
-  _i2.Cancellable<_i6.IList<_i7.Character>> execute() => (super.noSuchMethod(
+  _i2.Cancellable<_i6.Character> execute() => (super.noSuchMethod(
         Invocation.method(
           #execute,
           [],
         ),
-        returnValue: _FakeCancellable_0<_i6.IList<_i7.Character>>(
+        returnValue: _FakeCancellable_0<_i6.Character>(
           this,
           Invocation.method(
             #execute,
             [],
           ),
         ),
-      ) as _i2.Cancellable<_i6.IList<_i7.Character>>);
+      ) as _i2.Cancellable<_i6.Character>);
 }
 
 /// A class which mocks [ErrorHandler].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockErrorHandler extends _i1.Mock implements _i8.ErrorHandler {
+class MockErrorHandler extends _i1.Mock implements _i7.ErrorHandler {
   MockErrorHandler() {
     _i1.throwOnMissingStub(this);
   }
@@ -98,7 +96,7 @@ class MockErrorHandler extends _i1.Mock implements _i8.ErrorHandler {
           #getErrorMessage,
           [exception],
         ),
-        returnValue: _i9.dummyValue<String>(
+        returnValue: _i8.dummyValue<String>(
           this,
           Invocation.method(
             #getErrorMessage,
@@ -119,8 +117,8 @@ class MockCancellable<T> extends _i1.Mock implements _i2.Cancellable<T> {
   @override
   _i3.Future<T> get call => (super.noSuchMethod(
         Invocation.getter(#call),
-        returnValue: _i9.ifNotNull(
-              _i9.dummyValueOrNull<T>(
+        returnValue: _i8.ifNotNull(
+              _i8.dummyValueOrNull<T>(
                 this,
                 Invocation.getter(#call),
               ),

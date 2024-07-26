@@ -7,7 +7,7 @@ import 'dart:async' as _i3;
 
 import 'package:dio/dio.dart' as _i4;
 import 'package:marvel_app/api/marvel_api.dart' as _i5;
-import 'package:marvel_app/data/response/character_response.dart' as _i6;
+import 'package:marvel_app/domain/entities/character.dart' as _i6;
 import 'package:marvel_app/domain/entities/common.dart' as _i2;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:mockito/src/dummies.dart' as _i7;
@@ -65,19 +65,19 @@ class MockMarvelApi extends _i1.Mock implements _i5.MarvelApi {
   }
 
   @override
-  _i2.Cancellable<_i6.MarvelApiResponse> getCharacters() => (super.noSuchMethod(
+  _i2.Cancellable<_i6.Character> getCharacters() => (super.noSuchMethod(
         Invocation.method(
           #getCharacters,
           [],
         ),
-        returnValue: _FakeCancellable_0<_i6.MarvelApiResponse>(
+        returnValue: _FakeCancellable_0<_i6.Character>(
           this,
           Invocation.method(
             #getCharacters,
             [],
           ),
         ),
-      ) as _i2.Cancellable<_i6.MarvelApiResponse>);
+      ) as _i2.Cancellable<_i6.Character>);
 }
 
 /// A class which mocks [Cancellable].

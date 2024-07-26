@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:marvel_app/domain/entities/character.dart';
-import 'package:marvel_app/domain/entities/thumbnail.dart';
 import 'package:marvel_app/presentation/home/components/character_image.dart';
 import 'package:marvel_app/presentation/home/components/character_info.dart';
 import 'package:marvel_app/presentation/shared/touch_effects.dart';
@@ -33,8 +32,7 @@ class CharacterItem extends StatelessWidget {
           child: Stack(
             children: <Widget>[
               CharacterImage(
-                image: character.thumbnail.landscape,
-                characterId: character.id,
+                image: character.title,
               ),
               CharacterInfo(character: character)
             ],

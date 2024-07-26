@@ -1,10 +1,13 @@
+import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:injectable/injectable.dart';
 import 'package:marvel_app/core/base_bloc.dart';
 import 'package:marvel_app/core/contracts/home_contract.dart';
 import 'package:marvel_app/core/error_handler.dart';
 import 'package:marvel_app/core/load_state.dart';
 import 'package:marvel_app/domain/usecase/fetch_character_usecase.dart';
 
+@injectable
 class HomeBloc extends BaseBloc<HomeEvent, HomeData> {
   final FetchCharacterUseCase _useCase;
   final ErrorHandler _errorHandler;
@@ -34,7 +37,7 @@ class HomeBloc extends BaseBloc<HomeEvent, HomeData> {
   void _fetchCharacters() {
     _useCase.execute()
       ..call
-          .then((value) => add(HomeEvent.charactersData(value)))
+          .then((value) => add(HomeEvent.charactersData([value].toIList())))
           .catchError((Object error) {
         add(HomeEvent.error(_errorHandler.getErrorMessage(error)));
       })

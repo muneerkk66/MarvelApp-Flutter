@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
 
+@singleton
 class ErrorHandler {
   const ErrorHandler();
 

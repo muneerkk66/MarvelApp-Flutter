@@ -13,7 +13,7 @@ class _MarvelClient implements MarvelClient {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'https://gateway.marvel.com/v1/public/';
+    baseUrl ??= 'https://jsonplaceholder.typicode.com';
   }
 
   final Dio _dio;
@@ -21,29 +21,20 @@ class _MarvelClient implements MarvelClient {
   String? baseUrl;
 
   @override
-  Future<MarvelApiResponse> getCharacters(
-    CancelToken cancelToken,
-    String ts,
-    String hash, {
-    String apiKey = MarvelClient.apiKey,
-  }) async {
+  Future<Character> getCharacters(CancelToken cancelToken) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{
-      r'ts': ts,
-      r'hash': hash,
-      r'apikey': apiKey,
-    };
+    final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<MarvelApiResponse>(Options(
+        .fetch<Map<String, dynamic>>(_setStreamType<Character>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
     )
             .compose(
               _dio.options,
-              '/characters',
+              '/todos/1/',
               queryParameters: queryParameters,
               data: _data,
               cancelToken: cancelToken,
@@ -53,7 +44,7 @@ class _MarvelClient implements MarvelClient {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = MarvelApiResponse.fromJson(_result.data!);
+    final value = Character.fromJson(_result.data!);
     return value;
   }
 

@@ -1,19 +1,20 @@
 import 'package:dio/dio.dart';
-import 'package:marvel_app/api/api_utils.dart';
-import 'package:marvel_app/api/marvel_client.dart';
-import 'package:marvel_app/domain/entities/common.dart';
-import 'package:marvel_app/data/response/character_response.dart';
+import 'package:injectable/injectable.dart';
 
+import 'package:marvel_app/api/marvel_client.dart';
+import 'package:marvel_app/domain/entities/character.dart';
+import 'package:marvel_app/domain/entities/common.dart';
+
+@singleton
 class MarvelApi {
   final MarvelClient _client;
-  final ApiUtils _utils;
 
-  MarvelApi(this._client, this._utils);
+  MarvelApi(this._client);
 
-  Cancellable<MarvelApiResponse> getCharacters() {
+  Cancellable<Character> getCharacters() {
     final cancelToken = CancelToken();
-    final res = _client.getCharacters(
-        cancelToken, _utils.currentTimestamp, _utils.hash);
+    final res = _client.getCharacters(cancelToken);
+
     return Cancellable(res, cancelToken);
   }
 }
